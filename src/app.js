@@ -5,7 +5,7 @@ import Chat from './chat';
 
 const usersState = ['@john_123', '@alex_1966', '@chris'];
 const reducer = (state = usersState, action) => {
-    console.log(action);
+    // console.log(action);
     if (action.type === 'ADD_NEW_USER') {
         return state.concat(action.username)
     }
