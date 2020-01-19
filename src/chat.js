@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import faker from 'faker';
 
 class Chat extends Component {
 
     render() {
-        console.log(this.props);
+        const rndUserName = `@${faker.internet.userName().toLowerCase()}`;
         return (
             <div>
                 <h3>Chat</h3>
-                <button onClick={() => this.props.dispatch({ type: 'ADD_NEW_USER' })}>
+                <button onClick={() => this.props.addNewUser(rndUserName)}>
                     Add New User
                 </button>
                 <hr />
@@ -20,8 +21,15 @@ class Chat extends Component {
     }
 }
 
-export default connect(state => {
+const mapStateToProps = (state) => {
     return {
         users: state
     }
-})(Chat)
+};
+const mapDispatchToProps = (dispatch) => {
+    return {
+        addNewUser: (username) => dispatch({ type: 'ADD_NEW_USER', username })
+    }
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Chat)
