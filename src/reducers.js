@@ -22,6 +22,13 @@ const usersReducer = (state = usersState, action) => {
 };
 
 const messagesReducer = (state = messagesState, action) => {
+    if (action.type === 'ADD_NEW_MESSAGE') {
+        return state.concat({
+            author: action.author,
+            text: action.text,
+            datetime: action.datetime
+        })
+    }
     return state;
 };
 

@@ -1,21 +1,29 @@
 import React, { Component } from 'react'
 
 export default class Messages extends Component {
+    submitForm(e) {
+        e.preventDefault();
+        this.props.newMessage('@alex_1966', this.input.value, Date.now());
+    }
+
     render() {
         return (
             <div className="chat">
-                {this.props.messages.map(msg => {
-                    const d = new Date(msg.datetime);
-                    return (
-                        <p key={msg.datetime} className="message">
-                            <span className="message__date">{`${d.getDate()}/${d.getMonth() + 1} ${d.getHours()}:${d.getMinutes()}`}</span>
-                            <span className="message__author">{msg.author}: </span>
-                            <span>{msg.text}</span>
-                        </p>
-                    )
-                })}
+                <form onSubmit={this.submitForm.bind(this)} action="#">
 
-                <input type="text" className="chat__input"></input>
+                    {this.props.messages.map(msg => {
+                        const d = new Date(msg.datetime);
+                        return (
+                            <p key={msg.datetime} className="message">
+                                <span className="message__date">{`${d.getDate()}/${d.getMonth() + 1} ${d.getHours()}:${d.getMinutes()}`}</span>
+                                <span className="message__author">{msg.author}: </span>
+                                <span>{msg.text}</span>
+                            </p>
+                        )
+                    })}
+
+                    <input ref={(element) => this.input = element} type="text" className="chat__input"></input>
+                </form>
             </div>
         )
     }

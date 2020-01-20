@@ -7,3 +7,10 @@ export const addNewUser = () => {
         username
     };
 }
+
+export const newMessage = (author, text, datetime) => {
+    return {
+        type: 'ADD_NEW_MESSAGE',
+        author, text, datetime
+    }
+}
