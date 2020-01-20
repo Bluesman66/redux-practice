@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import Chat from './chat';
-import reducer from './reducers';
+import rootReducer from './reducers';
 
-const store = createStore(reducer);
+const store = createStore(rootReducer);
 window.store = store;
 // store.subscribe(() => {
 //     console.debug('the store has been changed!');

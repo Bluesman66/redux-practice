@@ -8,7 +8,7 @@ class Chat extends Component {
     render() {
         return (
             <main className="main-wrapper">
-                <Messages />
+                <Messages messages={this.props.messages} />
                 <Users users={this.props.users} addNewUser={this.props.addNewUser} />
             </main>
         )
@@ -17,7 +17,8 @@ class Chat extends Component {
 
 const mapStateToProps = (state) => {
     return {
-        users: state
+        users: state.usersReducer,
+        messages: state.messagesReducer
     }
 };
 const mapDispatchToProps = (dispatch) => {
