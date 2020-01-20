@@ -4,6 +4,7 @@ export default class Messages extends Component {
     submitForm(e) {
         e.preventDefault();
         this.props.newMessage('@alex_1966', this.input.value, Date.now());
+        this.input.value = '';
     }
 
     render() {
