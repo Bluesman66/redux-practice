@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
 import './assets/styles/style.scss';
 import Messages from './messages';
 import Users from './users';
+import { addNewUser } from './actions';
 
 class Chat extends Component {
     render() {
@@ -23,7 +25,7 @@ const mapStateToProps = (state) => {
 };
 const mapDispatchToProps = (dispatch) => {
     return {
-        addNewUser: (username) => dispatch({ type: 'ADD_NEW_USER', username })
+        addNewUser: bindActionCreators(addNewUser, dispatch)
     }
 };
 

@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
-import faker from 'faker';
 
 export default class Users extends Component {
     render() {
-        const rndUserName = `@${faker.internet.userName().toLowerCase()}`;
         return (
             <div className="users">
                 <h3 className="users__title">Online users:</h3>
@@ -14,7 +12,7 @@ export default class Users extends Component {
                     })}
                 </ul>
 
-                <button onClick={() => this.props.addNewUser(rndUserName)}>Add New User</button>
+                <button onClick={this.props.addNewUser}>Add New User</button>
             </div>
         )
     }

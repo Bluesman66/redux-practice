@@ -1,5 +1,5 @@
 import { combineReducers } from 'redux';
- 
+
 const usersState = ['@john_123', '@alex_1966', '@chris'];
 const messagesState = [
     {
